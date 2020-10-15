@@ -1,0 +1,78 @@
+body{
+  background-color: rgb(255, 210, 87);
+}
+
+header{
+    background-color: rgb(18, 94, 170);
+    width: 60%;
+    margin-left: 20%;
+    text-align: center;
+    height: 10rem;
+    position: absolute;
+}
+
+#header-text{
+    font-family: cursive;
+    font-size: 3.5rem;
+    color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: relative;
+}
+
+#search-bar{
+    background-color: rgb(18, 94, 170);
+    width: 60%;
+    margin-left: 20%;
+    height: 15rem;
+    margin-top: 12rem;
+    position: absolute;
+}
+
+input{
+    border: 1px solid transparent;
+    background-color: #f1f1f1;
+    padding: 10px;
+    font-size: 16px;
+    width: 50%;
+    margin-left: 2%;
+    margin-top: 2%;
+}
+
+#search-btn{
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+  background-color: DodgerBlue;
+  color: #fff;
+  width: 20%;
+  margin-left: 2%;
+  margin-top: 2%;
+}
+
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  border-bottom: 1px solid #d4d4d4;
+}
+.autocomplete-items div:hover {
+  background-color: #e9e9e9;
+}

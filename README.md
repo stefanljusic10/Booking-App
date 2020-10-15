@@ -1,1 +1,2 @@
-# Booking-App
+# Šablon novog projekta
+
