@@ -1,4 +1,4 @@
-let hotel = [
+let hotelStorage = [
   {
     name: "Tornik",
     destination: "Zlatibor",
@@ -13,7 +13,10 @@ let hotel = [
         people: 2,
         roomSize: "27m",
         price: 17000,
-        availableRooms: 20
+        availableRooms: 20,
+        reservations: [
+          {from:'2020-10-25',to:'2020-10-30','person':''}
+        ]
       },
       twinRoom: {
         name: "Twin room",
@@ -56,18 +59,8 @@ let hotel = [
         availableRooms: 10
       },
     },
-    totalAvailableRooms() {
-      return (
-        this.room.doubleRoom.availableRooms +
-        this.room.twinRoom.availableRooms +
-        this.room.juniorSuite.availableRooms +
-        this.room.standardApartment.availableRooms +
-        this.room.superiorApartment.availableRooms +
-        this.room.deluxeApartment.availableRooms
-      )
-    }
   },
 
 ]
 
-export default hotel;
+export default hotelStorage;

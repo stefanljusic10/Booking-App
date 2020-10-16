@@ -15,10 +15,23 @@
     </div>
   </header>
   <form autocomplete="off">
-    <div id="search-bar" class="autocomplete">
-      <input type="text" id="input-text" placeholder="Search destination">
-      <input type="number" id="people-number" placeholder="Number of adults">
-      <br>
+    <div id="search-bar">
+      <div style="position: relative;">
+        <input type="text" id="input-text" class="txt-num" placeholder="Search destination">
+      </div>
+      <div>
+        <input type="number" id="people-number" class="txt-num" placeholder="Number of adults">
+      </div>
+      <div class="date-div">
+        <label>Date from:</label>
+        <br>
+        <input type="date" class="date">
+      </div>
+      <div class="date-div">
+        <label>Date to:</label>
+        <br>
+        <input type="date" class="date">
+      </div>
       <button id="search-btn">Search</button>
     </div>
   </form>

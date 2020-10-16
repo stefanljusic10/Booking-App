@@ -25,17 +25,17 @@ header{
     background-color: rgb(18, 94, 170);
     width: 60%;
     margin-left: 20%;
-    height: 15rem;
+    height: 25rem;
     margin-top: 12rem;
     position: absolute;
 }
 
-input{
+.txt-num{
     border: 1px solid transparent;
     background-color: #f1f1f1;
     padding: 10px;
     font-size: 16px;
-    width: 50%;
+    width: 40%;
     margin-left: 2%;
     margin-top: 2%;
 }
@@ -72,7 +72,32 @@ input{
   cursor: pointer;
   background-color: #fff;
   border-bottom: 1px solid #d4d4d4;
+  width: 50%;
+  margin-left: 2%;
 }
 .autocomplete-items div:hover {
   background-color: #e9e9e9;
+  width: 50%;
+  margin-left: 2%;
+}
+
+label{
+  margin-top: 2%;
+  margin-left: 2%;
+  color: white;
+  font-size: 16px;
+}
+
+.date{
+  border: 1px solid transparent;
+  background-color: #f1f1f1;
+  padding: 10px;
+  font-size: 16px;
+  width: 50%;
+  margin-left: 2%;
+  margin-top: 2%;
+}
+
+.date-div{
+  margin-top: 2%;
 }

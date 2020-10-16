@@ -1,4 +1,7 @@
-import hotel from "./db.js";
+import hotelStorage from "./db.js";
+
+localStorage.setItem('hotel', JSON.stringify(hotelStorage));
+let hotel = JSON.parse(localStorage.getItem('hotel'));
 
 function findHotel() {
   let searchText = document.querySelector("#input-text").value;
