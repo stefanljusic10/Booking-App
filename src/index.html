@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Booking | Hotel, Room, House</title>
+  <title>Document</title>
   <link rel="stylesheet" href="./style.css">
 </head>
-
 <body>
   <header>
     <div id="header-text">
@@ -15,28 +13,19 @@
     </div>
   </header>
   <form autocomplete="off">
-    <div id="search-bar">
-      <div style="position: relative;">
+    <div class="flex-container">
+      <div id="search-div" >
         <input type="text" id="input-text" class="txt-num" placeholder="Search destination">
       </div>
-      <div>
         <input type="number" id="people-number" class="txt-num" placeholder="Number of adults">
-      </div>
-      <div class="date-div">
-        <label>Date from:</label>
-        <br>
-        <input type="date" class="date">
-      </div>
-      <div class="date-div">
-        <label>Date to:</label>
-        <br>
-        <input type="date" class="date">
-      </div>
+      <div class="date-txt">Date from:</div>
+      <div class="date-txt">Date to:</div>
+      <input type="date" class="date">
+      <input type="date" class="date">
       <button id="search-btn">Search</button>
     </div>
   </form>
 
   <script type="module" src="./main.js"></script>
 </body>
-
 </html>
