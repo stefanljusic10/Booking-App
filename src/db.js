@@ -1,4 +1,4 @@
-let hotelStorage = [
+let hotel = [
   {
     name: "Tornik",
     destination: "Zlatibor",
@@ -13,10 +13,8 @@ let hotelStorage = [
         people: 2,
         roomSize: "27m",
         price: 17000,
-        availableRooms: 20,
-        reservations: [
-          {from:'2020-10-25',to:'2020-10-30','person':''}
-        ]
+        totalRooms: 20,
+        reservations: [{}]
       },
       twinRoom: {
         name: "Twin room",
@@ -24,7 +22,7 @@ let hotelStorage = [
         people: 2,
         roomSize: "27m",
         price: 17000,
-        availableRooms: 20
+        totalRooms: 20,
       },
       juniorSuite: {
         name: "Junior Suite",
@@ -32,7 +30,7 @@ let hotelStorage = [
         people: 4,
         roomSize: "32m",
         price: 22000,
-        availableRooms: 15
+        totalRooms: 15,
       },
       standardApartment: {
         name: "Standard Apartment",
@@ -40,7 +38,7 @@ let hotelStorage = [
         people: 5,
         roomSize: "37m",
         price: 27000,
-        availableRooms: 10
+        totalRooms: 10,
       },
       superiorApartment: {
         name: "Superior Apartment",
@@ -48,7 +46,7 @@ let hotelStorage = [
         people: 6,
         roomSize: "45m",
         price: 33000,
-        availableRooms: 10
+        totalRooms: 10,
       },
       deluxeApartment: {
         name: "Deluxe Apartment",
@@ -56,11 +54,11 @@ let hotelStorage = [
         people: 8,
         roomSize: "52m",
         price: 40000,
-        availableRooms: 10
+        totalRooms: 10,
       },
     },
   },
 
 ]
 
-export default hotelStorage;
+export default hotel;

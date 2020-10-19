@@ -1,7 +1,6 @@
-import hotelStorage from "./db.js";
+import hotel from "./db.js";
 
-localStorage.setItem('hotel', JSON.stringify(hotelStorage));
-let hotel = JSON.parse(localStorage.getItem('hotel'));
+localStorage.setItem("hotelArr", JSON.stringify(hotel));
 
 function findHotel() {
   let searchText = document.querySelector("#input-text").value;
@@ -28,6 +27,7 @@ function numberOfPeople() {
     }
   }
 }
+
 
 
 let
@@ -94,3 +94,11 @@ function autocomplete(inputText, arr1, arr2) {
   });
 }
 autocomplete(document.querySelector("#input-text"), destinationNames, hotelNames);
+
+document.querySelector("#submit").addEventListener("click", function(){
+  let dFrom = document.querySelector("#dateFrom").value;
+  let dTo = document.querySelector("#dateTo").value;
+  hotel[0].room.doubleRoom.reservations[0].dateFrom = dFrom;
+  hotel[0].room.doubleRoom.reservations[0].dateTo = dTo;
+  localStorage.setItem("hotelArr", JSON.stringify(hotel));
+})
