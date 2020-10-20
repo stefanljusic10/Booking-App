@@ -95,7 +95,8 @@ function autocomplete(inputText, arr1, arr2) {
 }
 autocomplete(document.querySelector("#input-text"), destinationNames, hotelNames);
 
-document.querySelector("#submit").addEventListener("click", function(){
+document.querySelector("#search-btn").addEventListener("click", function(e){
+  e.preventDefault();
   let dFrom = document.querySelector("#dateFrom").value;
   let dTo = document.querySelector("#dateTo").value;
   hotel[0].room.doubleRoom.reservations[0].dateFrom = dFrom;

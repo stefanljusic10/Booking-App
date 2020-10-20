@@ -1,32 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
   <header>
     <div id="header-text">
       Find your hotel, house, room...
     </div>
   </header>
-  <form autocomplete="off">
-    <div class="flex-container">
-      <div id="search-div" >
-        <input type="text" id="input-text" class="txt-num" placeholder="Search destination">
+    <form autocomplete="off">
+      <div class="flex-container">
+        <div id="search-div">
+          <input type="text" id="input-text" class="txt-num" placeholder="Search destination">
+        </div>
+        <input type="number" id="people-number" class="txt-num" placeholder="Number of adults">
+        <div class="date-txt">Date from:</div>
+        <div class="date-txt">Date to:</div>
+        <input type="date" id="dateFrom" class="date">
+        <input type="date" id="dateTo" class="date">
+        <button id="search-btn">Search</button>
       </div>
-      <input type="number" id="people-number" class="txt-num" placeholder="Number of adults">
-      <div class="date-txt">Date from:</div>
-      <div class="date-txt">Date to:</div>
-      <input type="date" id="dateFrom" class="date">
-      <input type="date" id="dateTo" class="date">
-      <button id="search-btn">Search</button>
-    </div>
-    <button id="submit">submit</button>
-  </form>
+    </form>
 
   <script type="module" src="./main.js"></script>
 </body>
+
 </html>
