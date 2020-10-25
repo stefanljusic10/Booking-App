@@ -1,5 +1,6 @@
 import hotel from "./db.js";
 import autocomplete from "./autocomplete.js"
+import showHotels from "./show.js"
 
 localStorage.setItem("hotelArr", JSON.stringify(hotel));
 
@@ -38,7 +39,6 @@ function restrictPastDates(){
   let todayDate = year + '-' + month + '-' + day;
   document.querySelector("#dateFrom").setAttribute("min", `${todayDate}`);
 }
-restrictPastDates();
 
 let
   inpText = document.querySelector("#input-text"),
@@ -51,6 +51,8 @@ for (let i = 0; i < hotel.length; i++) {
 }
 
 autocomplete(inpText, destinationNames, hotelNames);
+restrictPastDates();
+showHotels();
 document.querySelector("#search-btn").addEventListener("click", findHotel);
 document.querySelector("#dateFrom").addEventListener("input", function(){
   let dateFrom = document.querySelector("#dateFrom").value;

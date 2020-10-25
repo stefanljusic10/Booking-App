@@ -1,7 +1,12 @@
 let hotel = [
   {
-    name: "Tornik",
+    name: "Hotel Tornik",
     destination: "Zlatibor",
+    images: [
+      './images/tornik.jpg',
+      './images/tornik-bazen.jpg',
+      './images/tornik-soba.jpg'
+    ],
     stars: 5,
     room: {
 
