@@ -1,5 +1,8 @@
 body{
-  background-color: rgb(218, 218, 218);
+  background-image: url(./images/sea-bg.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 header{
@@ -26,7 +29,6 @@ form{
   height: 19.5rem;
   margin: 0 auto;
   margin-top: 2rem;
-  margin-bottom: 2rem;
 }
 
 .flex-container{
@@ -110,15 +112,12 @@ form{
   width: 100%;
 }
 
-#hotel-container{
+.flex-container-items{
   background-color: rgb(18, 94, 170);
   width: 60%;
   height: auto;
   margin: 0 auto;
   margin-top: 0.5rem;
-}
-
-.flex-container-items{
   display: flex;
   flex-wrap: wrap;
 }
@@ -127,10 +126,13 @@ form{
   width: 35%;
 }
 
-.hotel-name{
+.container-text{
+margin-left: 4.5%;
+}
+
+.text{
   font-family: cursive;
   color: white;
-  margin-left: 34.5%;
 }
 
 .book-button{
@@ -141,5 +143,5 @@ form{
   font-size: 16px;
   background-color: DodgerBlue;
   color: #fff;
-  width: 52%;
+  width: 7rem;
 }
