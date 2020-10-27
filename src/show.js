@@ -19,7 +19,7 @@ function showAllHotels() {
     h2.setAttribute("class", "text");
     stars.textContent = hotel[i].stars + "\u2B50";
     stars.setAttribute("class", "text");
-    averagePrice.textContent = "Prosecna cena: " + averagePriceCalculator() + "rsd";
+    averagePrice.textContent = "Prosecna cena: " + averagePriceCalculator() + " rsd";
     averagePrice.setAttribute("class", "text");
     bookBtn.textContent = "Book";
     bookBtn.setAttribute("class", "book-button");
@@ -43,7 +43,7 @@ function showAllHotels() {
       for (let roomType in hotel[i].room) {
         totalPrice += hotel[i].room[roomType].price;
       }
-      return (totalPrice / counter).toFixed(2);
+      return Math.floor(totalPrice / counter).toFixed(2);
     }
 
   }
