@@ -25,7 +25,7 @@ function showAllHotels() {
     bookBtn.setAttribute("class", "book-button");
 
 
-    // containerText se sastoji od imena hotela, broja slobodnih soba, prosecne cene za jednu noc, dugmeta za rezervaciju...
+    // containerText se sastoji od imena hotela, broja zvezdica, prosecne cene za jednu noc
     containerText.appendChild(h2);
     containerText.appendChild(stars);
     containerText.appendChild(averagePrice);
@@ -50,16 +50,26 @@ function showAllHotels() {
 }
 
 /*
-                             containerItems
-____________________________________________________________________________
-|                                   |                                      |
-|                                   |                                      |
-|                                   |                                      |
-|              imgFile              |              containerText           |
-|                                   |                                      |
-|                                   |                                      |
-|___________________________________|______________________________________|
+                                                  containerItems
+___________________________________________________________________________________________________________________
+|                                   |                                      |                                       |
+|                                   |                                      |                                       |
+|                                   |                                      |                                       |
+|              imgFile              |              containerText           |              book button              |
+|                                   |                                      |                                       |
+|                                   |                                      |                                       |
+|___________________________________|______________________________________|_______________________________________|
 
 */
+/*
+        containerItems:
+          - imgFile
+          - containerText:
+            - h2
+            - stars
+            - averagePrice
+          - bookBtn
+*/
+
 
 export default showAllHotels;
