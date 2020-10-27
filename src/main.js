@@ -1,6 +1,6 @@
 import hotel from "./db.js";
 import autocomplete from "./autocomplete.js"
-import showHotels from "./show.js"
+import showAllHotels from "./show.js"
 
 localStorage.setItem("hotelArr", JSON.stringify(hotel));
 
@@ -52,7 +52,7 @@ for (let i = 0; i < hotel.length; i++) {
 
 autocomplete(inpText, destinationNames, hotelNames);
 restrictPastDates();
-showHotels();
+showAllHotels();
 document.querySelector("#search-btn").addEventListener("click", findHotel);
 document.querySelector("#dateFrom").addEventListener("input", function(){
   let dateFrom = document.querySelector("#dateFrom").value;

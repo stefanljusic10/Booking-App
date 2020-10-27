@@ -63,7 +63,70 @@ let hotel = [
       },
     },
   },
+  {
+    name: "Hotel Moskva",
+    destination: "Beograd",
+    images: [
+      './images/tornik.jpg',
+      './images/tornik-bazen.jpg',
+      './images/tornik-soba.jpg'
+    ],
+    stars: 5,
+    room: {
 
+      // Ubaciti nekako slobodne/zauzete datume
+
+      doubleRoom: {
+        name: "Double room",
+        beds: 1,
+        people: 2,
+        roomSize: "27m",
+        price: 23000,
+        totalRooms: 30,
+        reservations: [{}]
+      },
+      twinRoom: {
+        name: "Twin room",
+        beds: 2,
+        people: 2,
+        roomSize: "27m",
+        price: 20000,
+        totalRooms: 25,
+      },
+      juniorSuite: {
+        name: "Junior Suite",
+        beds: 2,
+        people: 4,
+        roomSize: "32m",
+        price: 14000,
+        totalRooms: 10,
+      },
+      standardApartment: {
+        name: "Standard Apartment",
+        beds: 3,
+        people: 5,
+        roomSize: "37m",
+        price: 38000,
+        totalRooms: 10,
+      },
+      superiorApartment: {
+        name: "Superior Apartment",
+        beds: 4,
+        people: 6,
+        roomSize: "45m",
+        price: 45000,
+        totalRooms: 10,
+      },
+      deluxeApartment: {
+        name: "Deluxe Apartment",
+        beds: 4,
+        people: 8,
+        roomSize: "52m",
+        price: 52000,
+        totalRooms: 8,
+      },
+    },
+  },
 ]
 
 export default hotel;

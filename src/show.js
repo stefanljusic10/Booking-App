@@ -1,21 +1,22 @@
 import hotel from "./db.js"
 
-function showHotels(){
-  let container = document.querySelector("#showhotels");
+function showAllHotels(){
+for(let i=0; i<hotel.length; i++){
+
   let containerItems = document.createElement("div");
   let containerText = document.createElement("div");
   let imgFile = document.createElement("img");
-  let imgPath = hotel[0].images[0];
+  let imgPath = hotel[i].images[0];
   let h2 = document.createElement("h2");
   let bookBtn = document.createElement("button");
 
   containerItems.setAttribute("id", "hotel-container");
   containerItems.setAttribute("class", "flex-container-items");
   imgFile.setAttribute("src", imgPath);
-  imgFile.setAttribute("width", "35%");
-  h2.textContent = hotel[0].name;
+  imgFile.setAttribute("class", "show-images");
+  h2.textContent = hotel[i].name;
   h2.setAttribute("class", "hotel-name");
-  bookBtn.textContent = "Rezervisi";
+  bookBtn.textContent = "Book";
   bookBtn.setAttribute("class", "book-button");
 
   // containerText se sastoji od imena hotela, broja slobodnih soba, prosecne cene za jednu noc, dugmeta za rezervaciju...
@@ -25,12 +26,12 @@ function showHotels(){
   // containerItems se sastoji od dve komponente: imgFile i containerText
   containerItems.appendChild(imgFile);
   containerItems.appendChild(containerText);
-  container.appendChild(containerItems);
+  document.body.appendChild(containerItems);
+}
 }
 
 /*
-
-                              containerItems
+                             containerItems
 ____________________________________________________________________________
 |                                   |                                      |
 |                                   |                                      |
@@ -42,4 +43,4 @@ ____________________________________________________________________________
 
 */
 
-export default showHotels;
+export default showAllHotels;
