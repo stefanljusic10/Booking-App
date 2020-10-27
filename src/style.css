@@ -127,7 +127,8 @@ form{
 }
 
 .container-text{
-margin-left: 4.5%;
+  margin-left: 4.5%;
+  flex-grow: 2;
 }
 
 .text{

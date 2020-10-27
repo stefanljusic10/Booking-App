@@ -8,7 +8,6 @@ function showAllHotels() {
     let imgPath = hotel[i].images[0];
     let h2 = document.createElement("h2");
     let stars = document.createElement("p");
-    let avgPriceAndBookBtn = document.createElement("div");
     let averagePrice = document.createElement("p");
     let bookBtn = document.createElement("button");
 
@@ -20,7 +19,8 @@ function showAllHotels() {
     h2.setAttribute("class", "text");
     stars.textContent = hotel[i].stars + "\u2B50";
     stars.setAttribute("class", "text");
-    averagePrice = averagePriceCalculator() + '';
+    averagePrice.textContent = "Prosecna cena: " + averagePriceCalculator() + "rsd";
+    averagePrice.setAttribute("class", "text");
     bookBtn.textContent = "Book";
     bookBtn.setAttribute("class", "book-button");
 
@@ -28,11 +28,12 @@ function showAllHotels() {
     // containerText se sastoji od imena hotela, broja slobodnih soba, prosecne cene za jednu noc, dugmeta za rezervaciju...
     containerText.appendChild(h2);
     containerText.appendChild(stars);
-    containerText.appendChild(bookBtn);
+    containerText.appendChild(averagePrice);
 
     // containerItems se sastoji od dve komponente: imgFile i containerText
     containerItems.appendChild(imgFile);
     containerItems.appendChild(containerText);
+    containerItems.appendChild(bookBtn);
     document.querySelector("#show-hotels").appendChild(containerItems)
     document.body.appendChild(document.querySelector("#show-hotels"));
 
