@@ -20,8 +20,10 @@ function showAllHotels() {
     h2.setAttribute("class", "text");
     stars.textContent = hotel[i].stars + "\u2B50";
     stars.setAttribute("class", "text");
+    averagePrice = averagePriceCalculator() + '';
     bookBtn.textContent = "Book";
     bookBtn.setAttribute("class", "book-button");
+
 
     // containerText se sastoji od imena hotela, broja slobodnih soba, prosecne cene za jednu noc, dugmeta za rezervaciju...
     containerText.appendChild(h2);
@@ -36,7 +38,7 @@ function showAllHotels() {
 
     function averagePriceCalculator(){
       let totalPrice = 0;
-      let counter = Object.keys(hotel[i].room).length
+      let counter = Object.keys(hotel[i].room).length;
       for (let roomType in hotel[i].room) {
         totalPrice += hotel[i].room[roomType].price;
       }
