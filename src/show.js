@@ -8,6 +8,8 @@ function showAllHotels() {
     let imgPath = hotel[i].images[0];
     let h2 = document.createElement("h2");
     let stars = document.createElement("p");
+    let avgPriceAndBookBtn = document.createElement("div");
+    let averagePrice = document.createElement("p");
     let bookBtn = document.createElement("button");
 
     containerItems.setAttribute("class", "flex-container-items");
@@ -16,8 +18,8 @@ function showAllHotels() {
     containerText.setAttribute("class", "container-text")
     h2.textContent = hotel[i].name;
     h2.setAttribute("class", "text");
-    stars.textContent = hotel[i].stars + " &#x2606";
-    stars.setAttribute("class", "text")
+    stars.textContent = hotel[i].stars + "\u2B50";
+    stars.setAttribute("class", "text");
     bookBtn.textContent = "Book";
     bookBtn.setAttribute("class", "book-button");
 
@@ -31,6 +33,16 @@ function showAllHotels() {
     containerItems.appendChild(containerText);
     document.querySelector("#show-hotels").appendChild(containerItems)
     document.body.appendChild(document.querySelector("#show-hotels"));
+
+    function averagePriceCalculator(){
+      let totalPrice = 0;
+      let counter = Object.keys(hotel[i].room).length
+      for (let roomType in hotel[i].room) {
+        totalPrice += hotel[i].room[roomType].price;
+      }
+      return (totalPrice / counter).toFixed(2);
+    }
+
   }
 }
 
