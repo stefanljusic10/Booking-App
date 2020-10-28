@@ -6,17 +6,43 @@ localStorage.setItem("hotelArr", JSON.stringify(hotel));
 
 function findHotel() {
   let searchText = document.querySelector("#input-text").value;
+  let howManyPeople = document.querySelector("#people-number").value;
+  let dateCheckIn = document.querySelector("#dateFrom").value;
+  let dateCheckOut = document.querySelector("#dateTo").value;
 
   for (let i = 0; i < hotel.length; i++) {
     if (searchText.toLowerCase() === hotel[i].destination.toLowerCase()) {
-      numberOfPeople();
+      for (let roomType in hotel[i].room) {
+        if (hotel[i].room[roomType].people >= howManyPeople) {
+          // uslov za datume
+        }
+      }
+    }
+    else if (searchText === ''){
+      // iskopirati if blok
     }
     if (searchText.toLowerCase() === hotel[i].name.toLowerCase()) {
-      numberOfPeople();
+      for (let roomType in hotel[i].room) {
+        if (hotel[i].room[roomType].people >= howManyPeople) {
+          // uslov za datume
+        }
+      }
+    }
+    else if (searchText === ''){
+      // iskopirati if blok
     }
   }
 }
 
+function isAvailableReservation(counter){
+  let dateCheckIn = document.querySelector("#dateFrom").value;
+  let dateCheckOut = document.querySelector("#dateTo").value;
+
+  let = Object.keys(hotel[counter])
+
+}
+
+/*
 function numberOfPeople() {
   let howManyPeople = document.querySelector("#people-number").value;
 
@@ -29,6 +55,7 @@ function numberOfPeople() {
     }
   }
 }
+*/
 
 function restrictPastDates(){
   let currentDate = new Date();

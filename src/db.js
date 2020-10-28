@@ -26,6 +26,8 @@ let hotel = [
         roomSize: "27m",
         price: 17000,
         totalRooms: 20,
+        reservations: [{}]
+
       },
       juniorSuite: {
         name: "Junior Suite",
@@ -34,6 +36,7 @@ let hotel = [
         roomSize: "32m",
         price: 22000,
         totalRooms: 15,
+        reservations: [{}]
       },
       standardApartment: {
         name: "Standard Apartment",
@@ -42,6 +45,7 @@ let hotel = [
         roomSize: "37m",
         price: 27000,
         totalRooms: 10,
+        reservations: [{}]
       },
       superiorApartment: {
         name: "Superior Apartment",
@@ -50,6 +54,7 @@ let hotel = [
         roomSize: "45m",
         price: 33000,
         totalRooms: 10,
+        reservations: [{}]
       },
       deluxeApartment: {
         name: "Deluxe Apartment",
@@ -58,6 +63,7 @@ let hotel = [
         roomSize: "52m",
         price: 40000,
         totalRooms: 10,
+        reservations: [{}]
       },
     },
   },
@@ -88,6 +94,7 @@ let hotel = [
         roomSize: "27m",
         price: 20000,
         totalRooms: 25,
+        reservations: [{}]
       },
       juniorSuite: {
         name: "Junior Suite",
@@ -96,6 +103,7 @@ let hotel = [
         roomSize: "32m",
         price: 14000,
         totalRooms: 10,
+        reservations: [{}]
       },
       standardApartment: {
         name: "Standard Apartment",
@@ -104,6 +112,7 @@ let hotel = [
         roomSize: "37m",
         price: 38000,
         totalRooms: 10,
+        reservations: [{}]
       },
       superiorApartment: {
         name: "Superior Apartment",
@@ -112,6 +121,7 @@ let hotel = [
         roomSize: "45m",
         price: 45000,
         totalRooms: 10,
+        reservations: [{}]
       },
       deluxeApartment: {
         name: "Deluxe Apartment",
@@ -120,6 +130,7 @@ let hotel = [
         roomSize: "52m",
         price: 52000,
         totalRooms: 8,
+        reservations: [{}]
       },
     },
   },
@@ -150,6 +161,7 @@ let hotel = [
         roomSize: "27m",
         price: 22000,
         totalRooms: 20,
+        reservations: [{}]
       },
       juniorSuite: {
         name: "Junior Suite",
@@ -158,6 +170,7 @@ let hotel = [
         roomSize: "32m",
         price: 10000,
         totalRooms: 15,
+        reservations: [{}]
       },
       standardApartment: {
         name: "Standard Apartment",
@@ -166,6 +179,7 @@ let hotel = [
         roomSize: "37m",
         price: 30000,
         totalRooms: 10,
+        reservations: [{}]
       },
       superiorApartment: {
         name: "Superior Apartment",
@@ -174,6 +188,7 @@ let hotel = [
         roomSize: "45m",
         price: 32000,
         totalRooms: 10,
+        reservations: [{}]
       },
       deluxeApartment: {
         name: "Deluxe Apartment",
@@ -182,6 +197,7 @@ let hotel = [
         roomSize: "52m",
         price: 38000,
         totalRooms: 5,
+        reservations: [{}]
       },
     },
   },
