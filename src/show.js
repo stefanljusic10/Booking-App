@@ -7,7 +7,7 @@ function showAllHotels() {
     let imgFile = document.createElement("img");
     let imgPath = hotel[i].images[0];
     let h2 = document.createElement("h2");
-    let stars = document.createElement("p");
+    let place = document.createElement("p");
     let averagePrice = document.createElement("p");
     let bookBtn = document.createElement("button");
 
@@ -15,10 +15,10 @@ function showAllHotels() {
     imgFile.setAttribute("src", imgPath);
     imgFile.setAttribute("class", "show-images");
     containerText.setAttribute("class", "container-text")
-    h2.textContent = hotel[i].name;
+    h2.textContent = hotel[i].name + " " + hotel[i].stars + "\u2B50";
     h2.setAttribute("class", "text");
-    stars.textContent = hotel[i].stars + "\u2B50";
-    stars.setAttribute("class", "text");
+    place.textContent = hotel[i].destination;
+    place.setAttribute("class", "text");
     averagePrice.textContent = "Prosecna cena: " + averagePriceCalculator() + " rsd";
     averagePrice.setAttribute("class", "text");
     bookBtn.textContent = "Book";
@@ -27,7 +27,7 @@ function showAllHotels() {
 
     // containerText se sastoji od imena hotela, broja zvezdica, prosecne cene za jednu noc
     containerText.appendChild(h2);
-    containerText.appendChild(stars);
+    containerText.appendChild(place);
     containerText.appendChild(averagePrice);
 
     // containerItems se sastoji od dve komponente: imgFile i containerText
