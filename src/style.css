@@ -145,3 +145,10 @@ form{
   color: #fff;
   width: 7rem;
 }
+
+.hotel-block{
+  background-color: rgb(18, 94, 170);
+  width: 60%;
+  text-align: center;
+  margin: 0 auto;
+}

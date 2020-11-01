@@ -128,7 +128,15 @@ for (let i = 0; i < hotel.length; i++) {
     // forma i lista hotela se skidaju sa stranice
     document.querySelector("#search-bar-form").style.display = "none";
     document.body.removeChild(document.querySelector("#show-hotels"));
-    // sledeci korak - dodati formu za odabrani hotel
+    // forma za odabrani hotel
+    let hotelBlock = document.createElement("div");
+    hotelBlock.setAttribute("class", "hotel-block");
+    let h1 = document.createElement("h2");
+    h1.setAttribute("class", "text");
+    h1.textContent = hotel[i].name;
+
+    hotelBlock.appendChild(h1);
+    document.body.appendChild(hotelBlock);
   }
   )
 }
