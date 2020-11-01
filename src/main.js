@@ -7,18 +7,30 @@ localStorage.setItem("hotelArr", JSON.stringify(hotel));
 function findHotel() {
   let searchText = document.querySelector("#input-text").value;
   let howManyPeople = document.querySelector("#people-number").value;
-  let dateCheckIn = document.querySelector("#dateFrom").value;
-  let dateCheckOut = document.querySelector("#dateTo").value;
+  let dIn = document.querySelector("#dateFrom").value;
+  let dOut = document.querySelector("#dateTo").value;
+  // Datume pretvaram u objekte zbog konvertovanja u milisekunde
+  let dateCheckIn = new Date(dIn);
+  let dateCheckOut = new Date(dOut);
 
   for (let i = 0; i < hotel.length; i++) {
     if (searchText.toLowerCase() === hotel[i].destination.toLowerCase()) {
       for (let roomType in hotel[i].room) {
         if (hotel[i].room[roomType].people >= howManyPeople) {
           // uslov za datume
-
           for (let i = 0; i < hotel[i].room[roomType].reservations.length; i++){
             for (let reserv in hotel[i].room[roomType].reservations) {
-
+              let x = hotel[i].room[roomType].reservations;
+              let count = 0;
+              if (
+                dateCheckIn.getTime() < x.dateFrom.getTime() && dateCheckOut.getTime() > x.dateFrom.getTime() ||
+                dateCheckIn.getTime() < x.dateTo.getTime() && dateCheckOut.getTime() > x.dateTo.getTime() ||
+                dateCheckIn.getTime() < x.dateFrom.getTime() && dateCheckOut.getTime() > x.dateTo.getTime() ||
+                dateCheckIn.getTime() > x.dateFrom.getTime() && dateCheckOut.getTime() < x.dateTo.getTime()
+              )
+              {
+                ++count;
+              }
             }
           }
         }
