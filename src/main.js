@@ -19,8 +19,10 @@ function findHotel() {
         if (hotel[i].room[roomType].people >= howManyPeople) {
           // uslov za datume
           for (let i = 0; i < hotel[i].room[roomType].reservations.length; i++) {
+
+            // Ne znam da li je potrebna ova for petlja
             for (let reserv in hotel[i].room[roomType].reservations) {
-              let x = hotel[i].room[roomType].reservations;
+              let x = hotel[i].room[roomType].reservations[reserv];
               let count = 0;
               // Ispituje da li se uneseni datum rezervacije poklapa sa postojecim rezervacijama
               // count roji koliko puta se poklapa
