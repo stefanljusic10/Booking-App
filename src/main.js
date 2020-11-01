@@ -125,7 +125,10 @@ document.querySelector("#search-btn").addEventListener("click", function(e){
 // event listeneri za book buttone
 for (let i = 0; i < hotel.length; i++) {
   document.querySelector(`#bookbtn${i}`).addEventListener("click", function () {
-    document.querySelector("#header-text").textContent = "izmena"
+    // forma i lista hotela se skidaju sa stranice
+    document.querySelector("#search-bar-form").style.display = "none";
+    document.body.removeChild(document.querySelector("#show-hotels"));
+    // sledeci korak - dodati formu za odabrani hotel
   }
   )
 }
