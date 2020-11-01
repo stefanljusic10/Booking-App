@@ -1,6 +1,6 @@
 import hotel from "./db.js";
 import autocomplete from "./autocomplete.js"
-import showAllHotels from "./show.js"
+import allHotelsList from "./list.js";
 
 localStorage.setItem("hotelArr", JSON.stringify(hotel));
 
@@ -33,9 +33,8 @@ function findHotel() {
                   dateCheckIn.getTime() < x[i].dateTo.getTime() && dateCheckOut.getTime() > x[i].dateTo.getTime() ||
                   dateCheckIn.getTime() < x[i].dateFrom.getTime() && dateCheckOut.getTime() > x[i].dateTo.getTime() ||
                   dateCheckIn.getTime() > x[i].dateFrom.getTime() && dateCheckOut.getTime() < x[i].dateTo.getTime()
-                ) {
+                )
                   ++count;
-                }
               }
               if (count < hotel[i].room[roomType].totalRooms) {
 
@@ -106,9 +105,32 @@ for (let i = 0; i < hotel.length; i++) {
 // pozivi funkcija i event listeneri
 autocomplete(inpText, destinationNames, hotelNames);
 restrictPastDates();
-showAllHotels();
+allHotelsList();
 document.querySelector("#search-btn").addEventListener("click", findHotel);
 document.querySelector("#dateFrom").addEventListener("input", fixDateTo);
+for (let i = 0; i < hotel.length; i++) {
+  document.querySelector(`#bookbtn${i}`).addEventListener("click", function(){
+    // search forma i lista hotela se skidaju sa stranice
+    document.querySelector("#search-bar-form").style.display = "none";
+    document.body.removeChild(document.querySelector("#show-hotels"));
+
+    // forma za odabrani hotel
+    let hotelBlock = document.createElement("div");
+    let h1 = document.createElement("h1");
+    let imgFile = document.createElement("img");
+    let imgPath = hotel[i].images[0];
+
+    hotelBlock.setAttribute("class", "hotel-block");
+    h1.setAttribute("class", "text");
+    h1.textContent = hotel[i].name;
+    imgFile.setAttribute("src", imgPath);
+    imgFile.setAttribute("alt", `${hotel[i].name}`);
+    imgFile.setAttribute("class", "show-images"); // promeniti klasu, nije odgovarajuca
+
+    hotelBlock.appendChild(h1);
+    document.body.appendChild(hotelBlock);
+  })
+}
 
 /*
 document.querySelector("#search-btn").addEventListener("click", function(e){
@@ -120,23 +142,3 @@ document.querySelector("#search-btn").addEventListener("click", function(e){
   localStorage.setItem("hotelArr", JSON.stringify(hotel));
 })
 */
-
-
-// event listeneri za book buttone
-for (let i = 0; i < hotel.length; i++) {
-  document.querySelector(`#bookbtn${i}`).addEventListener("click", function () {
-    // forma i lista hotela se skidaju sa stranice
-    document.querySelector("#search-bar-form").style.display = "none";
-    document.body.removeChild(document.querySelector("#show-hotels"));
-    // forma za odabrani hotel
-    let hotelBlock = document.createElement("div");
-    hotelBlock.setAttribute("class", "hotel-block");
-    let h1 = document.createElement("h2");
-    h1.setAttribute("class", "text");
-    h1.textContent = hotel[i].name;
-
-    hotelBlock.appendChild(h1);
-    document.body.appendChild(hotelBlock);
-  }
-  )
-}

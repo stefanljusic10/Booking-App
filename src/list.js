@@ -1,6 +1,6 @@
 import hotel from "./db.js"
 
-function showAllHotels() {
+function allHotelsList() {
   for (let i = 0; i < hotel.length; i++) {
     let containerItems = document.createElement("div");
     let containerText = document.createElement("div");
@@ -13,6 +13,7 @@ function showAllHotels() {
 
     containerItems.setAttribute("class", "flex-container-items");
     imgFile.setAttribute("src", imgPath);
+    imgFile.setAttribute("alt", `${hotel[i].name}`);
     imgFile.setAttribute("class", "show-images");
     containerText.setAttribute("class", "container-text")
     h2.textContent = hotel[i].name + " " + hotel[i].stars + "\u2B50";
@@ -72,4 +73,4 @@ ________________________________________________________________________________
 */
 
 
-export default showAllHotels;
+export default allHotelsList;

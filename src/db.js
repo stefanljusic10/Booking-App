@@ -3,7 +3,11 @@ let hotel = [
     name: "Hotel Tornik",
     destination: "Zlatibor",
     images: [
-      './images/tornik.jpg',
+      './images/tornik0.jpg',
+      './images/tornik1.jpg',
+      './images/tornik2.jpg',
+      './images/tornik3.jpg',
+      './images/tornik4.jpg',
     ],
     stars: 5,
     room: {
@@ -71,9 +75,13 @@ let hotel = [
     name: "Hotel Moskva",
     destination: "Beograd",
     images: [
-      './images/moskva.jpg',
+      './images/moskva0.jpg',
+      './images/moskva1.jpg',
+      './images/moskva2.jpg',
+      './images/moskva3.jpg',
+      './images/moskva4.jpg',
     ],
-    stars: 5,
+    stars: 4,
     room: {
 
       // Ubaciti nekako slobodne/zauzete datume
@@ -138,7 +146,11 @@ let hotel = [
     name: "Gorski Hotel & Spa",
     destination: "Kopaonik",
     images: [
-      './images/gorski.jpg',
+      './images/gorski0.jpg',
+      './images/gorski1.jpg',
+      './images/gorski2.jpg',
+      './images/gorski3.jpg',
+      './images/gorski4.jpg',
     ],
     stars: 4.5,
     room: {
