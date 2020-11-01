@@ -22,6 +22,7 @@ function showAllHotels() {
     averagePrice.textContent = "Prosecna cena: " + averagePriceCalculator() + " rsd";
     averagePrice.setAttribute("class", "text");
     bookBtn.textContent = "Book";
+    bookBtn.setAttribute("id", `bookbtn${i}`);
     bookBtn.setAttribute("class", "book-button");
 
     // containerText se sastoji od imena hotela, broja zvezdica, destinacije, prosecne cene za jednu noc

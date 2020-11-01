@@ -120,3 +120,12 @@ document.querySelector("#search-btn").addEventListener("click", function(e){
   localStorage.setItem("hotelArr", JSON.stringify(hotel));
 })
 */
+
+
+// event listeneri za book buttone
+for (let i = 0; i < hotel.length; i++) {
+  document.querySelector(`#bookbtn${i}`).addEventListener("click", function () {
+    document.querySelector("#header-text").textContent = "izmena"
+  }
+  )
+}
