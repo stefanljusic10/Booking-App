@@ -9,7 +9,7 @@ function findHotel() {
   let howManyPeople = document.querySelector("#people-number").value;
   let dIn = document.querySelector("#dateFrom").value;
   let dOut = document.querySelector("#dateTo").value;
-  // Datume pretvaram u objekte zbog konvertovanja u milisekunde
+  // Datume pretvara u objekte zbog konvertovanja u milisekunde
   let dateCheckIn = new Date(dIn);
   let dateCheckOut = new Date(dOut);
 
@@ -18,18 +18,25 @@ function findHotel() {
       for (let roomType in hotel[i].room) {
         if (hotel[i].room[roomType].people >= howManyPeople) {
           // uslov za datume
-          for (let i = 0; i < hotel[i].room[roomType].reservations.length; i++){
+          for (let i = 0; i < hotel[i].room[roomType].reservations.length; i++) {
             for (let reserv in hotel[i].room[roomType].reservations) {
               let x = hotel[i].room[roomType].reservations;
               let count = 0;
-              if (
-                dateCheckIn.getTime() < x.dateFrom.getTime() && dateCheckOut.getTime() > x.dateFrom.getTime() ||
-                dateCheckIn.getTime() < x.dateTo.getTime() && dateCheckOut.getTime() > x.dateTo.getTime() ||
-                dateCheckIn.getTime() < x.dateFrom.getTime() && dateCheckOut.getTime() > x.dateTo.getTime() ||
-                dateCheckIn.getTime() > x.dateFrom.getTime() && dateCheckOut.getTime() < x.dateTo.getTime()
-              )
-              {
-                ++count;
+              // Ispituje da li se uneseni datum rezervacije poklapa sa postojecim rezervacijama
+              // count roji koliko puta se poklapa
+              // dateFrom i dateTo su polja objekta, u njima se nalaze postojece rezervacije
+              for (let i = 0; i < x.length; i++) {
+                if (
+                  dateCheckIn.getTime() < x[i].dateFrom.getTime() && dateCheckOut.getTime() > x[i].dateFrom.getTime() ||
+                  dateCheckIn.getTime() < x[i].dateTo.getTime() && dateCheckOut.getTime() > x[i].dateTo.getTime() ||
+                  dateCheckIn.getTime() < x[i].dateFrom.getTime() && dateCheckOut.getTime() > x[i].dateTo.getTime() ||
+                  dateCheckIn.getTime() > x[i].dateFrom.getTime() && dateCheckOut.getTime() < x[i].dateTo.getTime()
+                ) {
+                  ++count;
+                }
+              }
+              if (count < hotel[i].room[roomType].totalRooms) {
+
               }
             }
           }
