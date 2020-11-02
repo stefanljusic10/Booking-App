@@ -1,6 +1,7 @@
 import hotel from "./db.js";
-import autocomplete from "./autocomplete.js"
+import autocomplete from "./autocomplete.js";
 import allHotelsList from "./list.js";
+import { restrictPastDates, fixDateTo } from "./restrictDates.js";
 
 localStorage.setItem("hotelArr", JSON.stringify(hotel));
 
@@ -16,7 +17,9 @@ function findHotel() {
   for (let i = 0; i < hotel.length; i++) {
     if (searchText.toLowerCase() === hotel[i].destination.toLowerCase()) {
       for (let roomType in hotel[i].room) {
-        if (hotel[i].room[roomType].people >= howManyPeople) {
+        if (howManyPeople === "")
+          howManyPeople = 0;
+        if (hotel[i].room[roomType].people >= Number(howManyPeople)) {
           // uslov za datume
           for (let i = 0; i < hotel[i].room[roomType].reservations.length; i++) {
 
@@ -60,37 +63,6 @@ function isAvailableReservation(checkIn, checkOut) {
 
 }
 
-/*
-function numberOfPeople() {
-  let howManyPeople = document.querySelector("#people-number").value;
-
-  for (let i = 0; i < hotel.length; i++) {
-    for (let roomType in hotel[i].room) {
-      if (hotel[i].room[roomType].people >= howManyPeople) {
-        console.log(hotel[i].name)
-        console.log(hotel[i].room[roomType].name)
-      }
-    }
-  }
-}
-*/
-
-function restrictPastDates() {
-  let currentDate = new Date();
-  let year = currentDate.getFullYear();
-  let month = currentDate.getMonth();
-  ++month;
-  let day = currentDate.getDate();
-  let todayDate = year + '-' + month + '-' + day;
-  document.querySelector("#dateFrom").setAttribute("min", `${todayDate}`);
-}
-
-function fixDateTo() {
-  let dateFrom = document.querySelector("#dateFrom").value;
-  document.querySelector("#dateTo").value = dateFrom;
-  document.querySelector("#dateTo").setAttribute("min", `${dateFrom}`);
-}
-
 let
   inpText = document.querySelector("#input-text"),
   destinationNames = [],
@@ -109,10 +81,11 @@ allHotelsList();
 document.querySelector("#search-btn").addEventListener("click", findHotel);
 document.querySelector("#dateFrom").addEventListener("input", fixDateTo);
 for (let i = 0; i < hotel.length; i++) {
-  document.querySelector(`#bookbtn${i}`).addEventListener("click", function(){
+  document.querySelector(`#bookbtn${i}`).addEventListener("click", function () {
     // search forma i lista hotela se skidaju sa stranice
     document.querySelector("#search-bar-form").style.display = "none";
     document.body.removeChild(document.querySelector("#show-hotels"));
+    document.querySelector("#header-text").textContent = "Book your room"
 
     // forma za odabrani hotel
     let hotelBlock = document.createElement("div");
