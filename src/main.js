@@ -1,10 +1,13 @@
 import hotel from "./db.js";
 import autocomplete from "./autocomplete.js";
-import allHotelsList from "./list.js";
+import allHotelsList from "./hotelList.js";
 import { restrictPastDates, fixDateTo } from "./restrictDates.js";
 
 localStorage.setItem("hotelArr", JSON.stringify(hotel));
 
+
+// Smisliti resenje za search bar
+// Ovo je ???
 function findHotel() {
   let searchText = document.querySelector("#input-text").value;
   let howManyPeople = document.querySelector("#people-number").value;
@@ -59,10 +62,6 @@ function findHotel() {
   }
 }
 
-function isAvailableReservation(checkIn, checkOut) {
-
-}
-
 let
   inpText = document.querySelector("#input-text"),
   destinationNames = [],
@@ -72,7 +71,6 @@ for (let i = 0; i < hotel.length; i++) {
   destinationNames.push(hotel[i].destination);
   hotelNames.push(hotel[i].name);
 }
-
 
 // pozivi funkcija i event listeneri
 autocomplete(inpText, destinationNames, hotelNames);
