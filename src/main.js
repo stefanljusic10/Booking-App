@@ -88,17 +88,19 @@ for (let i = 0; i < hotel.length; i++) {
     // forma za odabrani hotel
     let hotelBlock = document.createElement("div");
     let h1 = document.createElement("h1");
-    let imgFile = document.createElement("img");
-    let imgPath = hotel[i].images[0];
 
     hotelBlock.setAttribute("class", "hotel-block");
     h1.setAttribute("class", "text");
     h1.textContent = hotel[i].name;
-    imgFile.setAttribute("src", imgPath);
-    imgFile.setAttribute("alt", `${hotel[i].name}`);
-    imgFile.setAttribute("class", "show-images"); // promeniti klasu, nije odgovarajuca
+    for (let j=0; j<hotel[i].images[j]; j++){
+      let imgFile = document.createElement("img");
+      let imgPath = `./images/${}`
+      imgFile.setAttribute("src", imgPath);
+      imgFile.setAttribute("alt", `${hotel[i].name}`);
+    }
 
     hotelBlock.appendChild(h1);
+    hotelBlock.appendChild(imgSlider);
     document.body.appendChild(hotelBlock);
   })
 }
