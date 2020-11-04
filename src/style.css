@@ -126,3 +126,10 @@ form{
   margin: 0 auto;
 }
 
+.flex-block-images{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 70%;
+  margin: 0 auto;
+}

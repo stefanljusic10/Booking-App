@@ -3,7 +3,7 @@ let hotel = [
     name: "Hotel Tornik",
     destination: "Zlatibor",
     images: [
-      './images/a/tornik0.jpg',
+      './images/0/tornik0.jpg',
       './images/0/tornik1.jpg',
       './images/0/tornik2.jpg',
       './images/0/tornik3.jpg',

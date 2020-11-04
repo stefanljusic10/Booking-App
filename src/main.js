@@ -1,66 +1,11 @@
 import hotel from "./db.js";
+import searchHotel from "./search.js"
 import autocomplete from "./autocomplete.js";
 import allHotelsList from "./hotelList.js";
+import crE from "./createElem.js";
 import { restrictPastDates, fixDateTo } from "./restrictDates.js";
 
 localStorage.setItem("hotelArr", JSON.stringify(hotel));
-
-
-// Smisliti resenje za search bar
-// Ovo je ???
-function findHotel() {
-  let searchText = document.querySelector("#input-text").value;
-  let howManyPeople = document.querySelector("#people-number").value;
-  let dIn = document.querySelector("#dateFrom").value;
-  let dOut = document.querySelector("#dateTo").value;
-  // Datume pretvara u objekte zbog konvertovanja u milisekunde
-  let dateCheckIn = new Date(dIn);
-  let dateCheckOut = new Date(dOut);
-
-  for (let i = 0; i < hotel.length; i++) {
-    if (searchText.toLowerCase() === hotel[i].destination.toLowerCase()) {
-      for (let roomType in hotel[i].room) {
-        if (howManyPeople === "")
-          howManyPeople = 0;
-        if (hotel[i].room[roomType].people >= Number(howManyPeople)) {
-          // uslov za datume
-          for (let i = 0; i < hotel[i].room[roomType].reservations.length; i++) {
-
-            // Ne znam da li je potrebna ova for petlja
-            for (let reserv in hotel[i].room[roomType].reservations) {
-              let x = hotel[i].room[roomType].reservations[reserv];
-              let count = 0;
-              // Ispituje da li se uneseni datum rezervacije poklapa sa postojecim rezervacijama
-              // count roji koliko puta se poklapa
-              // dateFrom i dateTo su polja objekta, u njima se nalaze postojece rezervacije
-              for (let i = 0; i < x.length; i++) {
-                if (
-                  dateCheckIn.getTime() < x[i].dateFrom.getTime() && dateCheckOut.getTime() > x[i].dateFrom.getTime() ||
-                  dateCheckIn.getTime() < x[i].dateTo.getTime() && dateCheckOut.getTime() > x[i].dateTo.getTime() ||
-                  dateCheckIn.getTime() < x[i].dateFrom.getTime() && dateCheckOut.getTime() > x[i].dateTo.getTime() ||
-                  dateCheckIn.getTime() > x[i].dateFrom.getTime() && dateCheckOut.getTime() < x[i].dateTo.getTime()
-                )
-                  ++count;
-              }
-              if (count < hotel[i].room[roomType].totalRooms) {
-
-              }
-            }
-          }
-        }
-      }
-    }
-    else if (searchText === "") {
-      // iskopirati if blok
-    }
-    if (searchText.toLowerCase() === hotel[i].name.toLowerCase()) {
-      // iskopirati if blok
-    }
-    else if (searchText === "") {
-      // iskopirati if blok
-    }
-  }
-}
 
 let
   inpText = document.querySelector("#input-text"),
@@ -76,42 +21,39 @@ for (let i = 0; i < hotel.length; i++) {
 autocomplete(inpText, destinationNames, hotelNames);
 restrictPastDates();
 allHotelsList();
-document.querySelector("#search-btn").addEventListener("click", findHotel);
+document.querySelector("#search-btn").addEventListener("click", searchHotel);
 document.querySelector("#dateFrom").addEventListener("input", fixDateTo);
-for (let i = 0; i < hotel.length; i++) {
-  document.querySelector(`#bookbtn${i}`).addEventListener("click", function () {
-    // search forma i lista hotela se skidaju sa stranice
-    document.querySelector("#search-bar-form").style.display = "none";
-    document.body.removeChild(document.querySelector("#show-hotels"));
-    document.querySelector("#header-text").textContent = "Book your room"
+document.querySelector("body").addEventListener("click", function (e) {
+  let i;
+  if (e.target.classList.contains("book-button")){
+    i = Number(e.target.id.replace("bookbtn", ""))
+  } else { return }
 
-    // forma za odabrani hotel
-    let hotelBlock = document.createElement("div");
-    let h1 = document.createElement("h1");
+  document.querySelector("#search-bar-form").style.display = "none";
+  document.body.removeChild(document.querySelector("#show-hotels"));
+  document.querySelector("#header-text").textContent = "Book your room";
 
-    hotelBlock.setAttribute("class", "hotel-block");
-    h1.setAttribute("class", "text");
-    h1.textContent = hotel[i].name;
-    for (let j=0; j<hotel[i].images[j]; j++){
-      let imgFile = document.createElement("img");
-      let imgPath = `./images/${}`
-      imgFile.setAttribute("src", imgPath);
-      imgFile.setAttribute("alt", `${hotel[i].name}`);
-    }
+  // kreiranje elemenata sa atributima
+  let h1 = crE("h1", { class: "text" }, hotel[i].name);
+  let imgPath = hotel[i].images[0];
+  let imgFile = crE("img", { src: imgPath, style: "width: 70%" });
+  let blockOfImages = crE("div", { class: "flex-block-images" });
+  let hotelBlock = crE("div", { class: "hotel-block" }, [h1, imgFile, blockOfImages]);
 
-    hotelBlock.appendChild(h1);
-    hotelBlock.appendChild(imgSlider);
-    document.body.appendChild(hotelBlock);
+  for (let j = 0; j < hotel[i].images.length; j++) {
+    let image = crE("img",
+      {
+        id: `image${j}`,
+        src: hotel[i].images[j],
+        style: "width: 15%",
+      });
+
+    blockOfImages.appendChild(image);
+  }
+
+  blockOfImages.addEventListener("click", function (e) {
+    imgFile.src = e.target.src;
   })
-}
 
-/*
-document.querySelector("#search-btn").addEventListener("click", function(e){
-  e.preventDefault();
-  let dFrom = document.querySelector("#dateFrom").value;
-  let dTo = document.querySelector("#dateTo").value;
-  hotel[0].room.doubleRoom.reservations[0].dateFrom = dFrom;
-  hotel[0].room.doubleRoom.reservations[0].dateTo = dTo;
-  localStorage.setItem("hotelArr", JSON.stringify(hotel));
+  document.body.appendChild(hotelBlock);
 })
-*/
