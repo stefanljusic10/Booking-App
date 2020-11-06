@@ -23,4 +23,6 @@ restrictPastDates();
 allHotelsList();
 document.querySelector("#search-btn").addEventListener("click", searchHotel);
 document.querySelector("#dateFrom").addEventListener("input", fixDateTo);
-document.querySelector("body").addEventListener("click", viewHotel);
+for (let i = 0; i < hotel.length; i++) {
+  document.querySelector(`#bookbtn${i}`).addEventListener("click", viewHotel);
+}

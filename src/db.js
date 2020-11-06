@@ -143,7 +143,7 @@ let hotel = [
     },
   },
   {
-    name: "Gorski Hotel & Spa",
+    name: "Gorski Hotel",
     destination: "Kopaonik",
     images: [
       './images/2/gorski0.jpg',
