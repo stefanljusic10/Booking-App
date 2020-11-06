@@ -18,10 +18,6 @@ function viewHotel(e) {
   let blockOfImages = crE("div", { class: "flex-block-images" });
   let optionRoom = crE("option", {}, "Choose room");
   let selectRoom = crE("select", { id: "select-room", class: "txt-num" }, optionRoom);
-  for (let roomType in hotel[i].room){
-    let newOption = crE("option", {}, hotel[i].room[roomType].name + " | " + hotel[i].room[roomType].people + " peoples");
-    selectRoom.appendChild(newOption);
-  }
   let hotelBlock = crE("div", { class: "hotel-block" }, [h1, imgFile, blockOfImages, selectRoom]);
 
   for (let j = 0; j < hotel[i].images.length; j++) {
@@ -39,8 +35,10 @@ function viewHotel(e) {
     imgFile.src = e.target.src;
   })
 
-
-  /////////////////////////////////////////////////////////////////
+  for (let roomType in hotel[i].room){
+    let newOption = crE("option", {}, hotel[i].room[roomType].name + " | " + hotel[i].room[roomType].people + " peoples");
+    selectRoom.appendChild(newOption);
+  }
 
   document.body.appendChild(hotelBlock);
 }
