@@ -35,9 +35,9 @@ function viewHotel(e) {
     imgFile.src = e.target.src;
   })
 
-  for (let roomType in hotel[i].room){
-    let newOption = crE("option", {}, hotel[i].room[roomType].name + " | " + hotel[i].room[roomType].people + " peoples");
-    selectRoom.appendChild(newOption);
+  for (let roomType in hotel[i].room) {
+    let x = hotel[i].room[roomType];
+    selectRoom.options[selectRoom.options.length] = new Option(x.name + ` | ${x.people} people`, x.name);
   }
 
   document.body.appendChild(hotelBlock);
