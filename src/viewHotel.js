@@ -19,7 +19,7 @@ function viewHotel(e) {
   let imgFile = crE("img", { src: imgPath, style: "width: 70%" });
   let blockOfImages = crE("div", { class: "flex-block-images" });
   let optionRoom = crE("option", {}, "Choose room");
-  let selectRoom = crE("select", { class: "dropdown" }, optionRoom);
+  let selectRoom = crE("select", {id: "select", class: "dropdown" }, optionRoom);
   let dateInText = crE("div", { class: "date-hotel" }, "Check in:");
   let dateOutText = crE("div", { class: "date-hotel" }, "Check out:");
   let dateIn = crE("input", { type: "date", id: "dateIn", class: "date" });
@@ -28,16 +28,16 @@ function viewHotel(e) {
   let btnBookNow = crE("button", { id: "book-now", class: "book-button" }, "Book now");
   let hotelBlock = crE("div", { class: "hotel-block" }, [h1, imgFile, blockOfImages, selectRoom, dateInText, dateIn, dateOutText, dateOut, price, btnBookNow]);
   // Ubaciti nekako restrictPastDates
-  restrictPastDates("#dateIn", "#dateOut");
-  btnBookNow.addEventListener("click", function () {
+
+  btnBookNow.addEventListener("click", totalPriceCalculator);
+  function totalPriceCalculator() {
     let tempPrice;
     for (let roomName in hotel[i].room) {
       if (selectRoom.value === hotel[i].room[roomName].name)
         tempPrice = hotel[i].room[roomName].price;
     }
-    price.textContent += (dateDiffInDays(dateIn, dateOut) * tempPrice).toFixed(2);
+    price.textContent = "Total price " + (dateDiffInDays(dateIn, dateOut) * tempPrice).toFixed(2);
   }
-  )
 
   for (let j = 0; j < hotel[i].images.length; j++) {
     let image = crE("img",
@@ -60,6 +60,7 @@ function viewHotel(e) {
   }
 
   document.body.appendChild(hotelBlock);
+
 }
 
 export default viewHotel;
