@@ -1,1 +1,3 @@
-const bookings = [{}];
+const bookings = [];
+
+export default bookings;

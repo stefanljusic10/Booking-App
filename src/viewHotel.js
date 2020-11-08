@@ -3,6 +3,7 @@ import crE from "./createElement.js";
 import dateDiffInDays from "./dateDifference.js";
 import { rc, ac } from "./childFunc.js";
 import restrictPastDates from "./restrictDates.js";
+import bookings from "./bookingsStorage.js"
 
 function viewHotel(e) {
   document.querySelector("#search-bar-form").style.display = "none";
@@ -61,6 +62,7 @@ function viewHotel(e) {
   }
 
   function newForm() {
+    // removeChild
     rc(hotelBlock, [selectRoom, dateInText, dateIn, dateOutText, dateOut, btnContinue]);
 
     let firstName = crE("input", { type: "text", class: "textbox", placeholder: "First name" });
@@ -69,7 +71,18 @@ function viewHotel(e) {
     let btnSubmit = crE("button", { class: "book-continue" }, "Submit");
     price.textContent = totalPriceCalculator();
 
+    // appendChild
     ac(hotelBlock, [firstName, lastName, price, btnSubmit]);
+
+    btnSubmit.addEventListener("click", function(){
+      let obj = {
+        name: firstName.value + " " + lastName.value,
+        dateFrom: dateIn.value,
+        dateTo: dateOut.value
+      }
+      bookings.push(obj);
+      console.log(bookings);
+    })
   }
 
 
