@@ -36,7 +36,7 @@ function viewHotel(e) {
       if (selectRoom.value === hotel[i].room[roomName].name)
         tempPrice = hotel[i].room[roomName].price;
     }
-    price.textContent = "Total price " + (dateDiffInDays(dateIn, dateOut) * tempPrice).toFixed(2);
+    price.textContent = "Total price " + (dateDiffInDays(dateIn, dateOut) * tempPrice).toFixed(2) + "rsd";
   }
 
   for (let j = 0; j < hotel[i].images.length; j++) {
