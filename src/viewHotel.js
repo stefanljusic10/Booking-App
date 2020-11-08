@@ -72,6 +72,7 @@ function viewHotel(e) {
     hotelBlock.removeChild(btnContinue);
   }
 
+
   for (let j = 0; j < hotel[i].images.length; j++) {
     let image = crE("img",
       {
