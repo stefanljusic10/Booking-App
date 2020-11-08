@@ -25,21 +25,40 @@ function viewHotel(e) {
   let dateIn = crE("input", { type: "date", id: "dateIn", class: "date" });
   let dateOut = crE("input", { type: "date", id: "dateOut", class: "date" });
   let price = crE("div", { class: "date-hotel" }, "Total price: ");
-  let firstName = crE("input", {type: "text", class: "date", placeholder: "First name"});
-  let lastName = crE("input", {type: "text", class: "date", placeholder: "Last name"});
-  let btnBookNow = crE("button", { id: "book-now", class: "book-button" }, "Book now");
+  // let firstName = crE("input", {type: "text", class: "date", placeholder: "First name"});
+  // let lastName = crE("input", {type: "text", class: "date", placeholder: "Last name"});
+  let btnContinue = crE("button", { id: "book-now", class: "book-continue" }, "Continue to booking");
   let hotelBlock = crE("div", { class: "hotel-block" },
-  [h1, imgFile, blockOfImages, selectRoom, dateInText, dateIn, dateOutText, dateOut, price, firstName, lastName, btnBookNow]);
+  [h1, imgFile, blockOfImages, selectRoom, dateInText, dateIn, dateOutText, dateOut, price, btnContinue]);
   // Ubaciti nekako restrictPastDates
 
-  btnBookNow.addEventListener("click", totalPriceCalculator);
+  btnContinue.addEventListener("click", totalPriceCalculator);
+  btnContinue.addEventListener("click", formValidation);
   function totalPriceCalculator() {
     let tempPrice;
     for (let roomName in hotel[i].room) {
       if (selectRoom.value === hotel[i].room[roomName].name)
         tempPrice = hotel[i].room[roomName].price;
     }
-    price.textContent = "Total price " + (dateDiffInDays(dateIn, dateOut) * tempPrice).toFixed(2) + "rsd";
+    price.textContent = "Total price: " + (dateDiffInDays(dateIn, dateOut) * tempPrice).toFixed(2) + "rsd";
+  }
+
+  function formValidation(){
+    if(selectRoom.value === "Choose room"){
+      alert("Please fill the form.");
+      price.textContent = "Total price: ";
+      btnContinue.removeEventListener("click", totalPriceCalculator);
+    }
+    else if (!dateIn.value){
+      alert("Please fill the form.");
+      price.textContent = "Total price: ";
+      btnContinue.removeEventListener("click", totalPriceCalculator);
+    }
+    else if (!dateOut.value){
+      alert("Please fill the form.");
+      price.textContent = "Total price: ";
+      btnContinue.removeEventListener("click", totalPriceCalculator);
+    }
   }
 
   for (let j = 0; j < hotel[i].images.length; j++) {
