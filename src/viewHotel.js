@@ -1,6 +1,7 @@
 import hotel from "./db.js";
 import crE from "./createElement.js";
-import dateDiffInDays from "./dateDifference.js"
+import dateDiffInDays from "./dateDifference.js";
+import {rc, ac} from "./childFunc.js";
 import restrictPastDates from "./restrictDates.js";
 
 function viewHotel(e) {
@@ -25,8 +26,6 @@ function viewHotel(e) {
   let dateIn = crE("input", { type: "date", id: "dateIn", class: "date" });
   let dateOut = crE("input", { type: "date", id: "dateOut", class: "date" });
   let price = crE("div", { class: "date-hotel" }, "Total price: ");
-  // let firstName = crE("input", {type: "text", class: "date", placeholder: "First name"});
-  // let lastName = crE("input", {type: "text", class: "date", placeholder: "Last name"});
   let btnContinue = crE("button", { id: "book-now", class: "book-continue" }, "Continue to booking");
   let hotelBlock = crE("div", { class: "hotel-block" },
   [h1, imgFile, blockOfImages, selectRoom, dateInText, dateIn, dateOutText, dateOut, price, btnContinue]);
@@ -63,13 +62,12 @@ function viewHotel(e) {
   }
 
   function newForm(){
-    hotelBlock.removeChild(selectRoom);
-    hotelBlock.removeChild(dateInText);
-    hotelBlock.removeChild(dateIn);
-    hotelBlock.removeChild(dateOutText);
-    hotelBlock.removeChild(dateOut);
-    hotelBlock.removeChild(price);
-    hotelBlock.removeChild(btnContinue);
+    rc(hotelBlock, [selectRoom, dateInText, dateIn, dateOutText, dateOut, price, btnContinue]);
+
+    let firstName = crE("input", {type: "text", class: "date", placeholder: "First name"});
+    let lastName = crE("input", {type: "text", class: "date", placeholder: "Last name"});
+
+    ac(hotelBlock, [firstName, lastName]);
   }
 
 
