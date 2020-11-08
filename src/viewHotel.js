@@ -25,8 +25,11 @@ function viewHotel(e) {
   let dateIn = crE("input", { type: "date", id: "dateIn", class: "date" });
   let dateOut = crE("input", { type: "date", id: "dateOut", class: "date" });
   let price = crE("div", { class: "date-hotel" }, "Total price: ");
+  let firstName = crE("input", {type: "text", class: "date", placeholder: "First name"});
+  let lastName = crE("input", {type: "text", class: "date", placeholder: "Last name"});
   let btnBookNow = crE("button", { id: "book-now", class: "book-button" }, "Book now");
-  let hotelBlock = crE("div", { class: "hotel-block" }, [h1, imgFile, blockOfImages, selectRoom, dateInText, dateIn, dateOutText, dateOut, price, btnBookNow]);
+  let hotelBlock = crE("div", { class: "hotel-block" },
+  [h1, imgFile, blockOfImages, selectRoom, dateInText, dateIn, dateOutText, dateOut, price, firstName, lastName, btnBookNow]);
   // Ubaciti nekako restrictPastDates
 
   btnBookNow.addEventListener("click", totalPriceCalculator);
