@@ -17,8 +17,10 @@ for (let i = 0; i < hotel.length; i++) {
   hotelNames.push(hotel[i].name);
 }
 
+let dateFrom = document.querySelector("#dateFrom");
+let dateTo = document.querySelector("#dateTo");
 // pozivi funkcija i event listeneri
-restrictPastDates("#dateFrom", "#dateTo");
+restrictPastDates(dateFrom, dateTo);
 autocomplete(inpText, destinationNames, hotelNames);
 allHotelsList();
 document.querySelector("#search-btn").addEventListener("click", searchHotel);

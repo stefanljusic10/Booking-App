@@ -29,6 +29,7 @@ function viewHotel(e) {
   let hotelBlock = crE("div", { class: "hotel-block" },
   [h1, imgFile, blockOfImages, selectRoom, dateInText, dateIn, dateOutText, dateOut, btnContinue]);
   // Ubaciti nekako restrictPastDates
+  restrictPastDates(dateIn, dateOut);
 
   btnContinue.addEventListener("click", formValidation);
   function totalPriceCalculator() {
@@ -65,9 +66,10 @@ function viewHotel(e) {
     let firstName = crE("input", {type: "text", class: "textbox", placeholder: "First name"});
     let lastName = crE("input", {type: "text", class: "textbox", placeholder: "Last name"});
     let price = crE("div", { class: "date-hotel" });
+    let btnSubmit = crE("button", {class: "book-continue"}, "Submit");
     price.textContent = totalPriceCalculator();
 
-    ac(hotelBlock, [firstName, lastName, price]);
+    ac(hotelBlock, [firstName, lastName, price, btnSubmit]);
   }
 
 

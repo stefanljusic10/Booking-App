@@ -1,4 +1,4 @@
-function restrictPastDates(id1, id2) {
+function restrictPastDates(a, b) {
   let currentDate = new Date();
   let year = currentDate.getFullYear();
   let month = currentDate.getMonth();
@@ -10,11 +10,11 @@ function restrictPastDates(id1, id2) {
     day = "0" + day;
   let todayDate = year + '-' + month + '-' + day;
 
-  document.querySelector(id1).setAttribute("min", `${todayDate}`);
-  document.querySelector(id1).addEventListener("input", function() {
-    let dateFrom = document.querySelector(id1).value;
-    document.querySelector(id2).value = dateFrom;
-    document.querySelector(id2).setAttribute("min", `${dateFrom}`);
+  a.setAttribute("min", `${todayDate}`);
+  a.addEventListener("input", function() {
+    let dateFrom = a.value;
+    b.value = dateFrom;
+    b.setAttribute("min", `${dateFrom}`);
   });
 }
 
