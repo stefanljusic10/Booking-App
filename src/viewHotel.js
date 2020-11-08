@@ -82,6 +82,8 @@ function viewHotel(e) {
       }
       bookings.push(obj);
       console.log(bookings);
+      // ubaciti rezervaciju u hotel[i].room[roomType].reservations
+      localStorage.setItem("bookingsArr", JSON.stringify(bookings));
     })
   }
 
