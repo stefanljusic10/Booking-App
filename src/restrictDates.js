@@ -11,6 +11,7 @@ function restrictPastDates(a, b) {
   let todayDate = year + '-' + month + '-' + day;
 
   a.setAttribute("min", `${todayDate}`);
+  b.setAttribute("min", `${todayDate}`);
   a.addEventListener("input", function() {
     let dateFrom = a.value;
     b.value = dateFrom;
