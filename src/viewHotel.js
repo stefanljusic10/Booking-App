@@ -59,6 +59,17 @@ function viewHotel(e) {
       price.textContent = "Total price: ";
       btnContinue.removeEventListener("click", totalPriceCalculator);
     }
+    else newForm();
+  }
+
+  function newForm(){
+    hotelBlock.removeChild(selectRoom);
+    hotelBlock.removeChild(dateInText);
+    hotelBlock.removeChild(dateIn);
+    hotelBlock.removeChild(dateOutText);
+    hotelBlock.removeChild(dateOut);
+    hotelBlock.removeChild(price);
+    hotelBlock.removeChild(btnContinue);
   }
 
   for (let j = 0; j < hotel[i].images.length; j++) {
