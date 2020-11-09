@@ -75,6 +75,9 @@ function viewHotel(e) {
     ac(hotelBlock, [firstName, lastName, price, btnSubmit]);
 
     btnSubmit.addEventListener("click", function(){
+      rc(hotelBlock, [h1, imgFile, blockOfImages, firstName, lastName, price, btnSubmit]);
+      let thanksMessage = crE("p", {id: "thanks-msg"}, "Thanks for booking! Enjoy!");
+      ac(hotelBlock, thanksMessage);
       let obj = {
         name: firstName.value + " " + lastName.value,
         dateFrom: dateIn.value,
