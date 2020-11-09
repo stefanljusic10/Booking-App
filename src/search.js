@@ -1,5 +1,5 @@
 import hotel from "./db.js";
-import show from "./showHotel.js";
+import hotelsList from "./hotelList.js";
 
 function searchHotel() {
   document.querySelector("#show-hotels").style.display = "none";
@@ -18,10 +18,11 @@ function searchHotel() {
         howManyPeople = 0;
       for (const key in hotel[i].room) {
         if (howManyPeople <= hotel[i].room[key].people) {
-          while (document.querySelector("#show-hotels").firstChild) {
-            document.querySelector("#show-hotels").removeChild(document.querySelector("#show-hotels").firstChild);
+          let x = document.querySelector("#show-hotels");
+          while (x.firstChild) {
+            x.removeChild(x.firstChild);
           }
-          show(i);
+          hotelsList(i);
         }
       }
     }
@@ -30,10 +31,11 @@ function searchHotel() {
         howManyPeople = 0;
       for (const key in hotel[i].room) {
         if (howManyPeople <= hotel[i].room[key].people) {
-          while (document.querySelector("#show-hotels").firstChild) {
-            document.querySelector("#show-hotels").removeChild(document.querySelector("#show-hotels").firstChild);
+          let x = document.querySelector("#show-hotels");
+          while (x.firstChild) {
+            x.removeChild(x.firstChild);
           }
-          show(i);
+          hotelsList(i);
         }
       }
     }
@@ -42,10 +44,11 @@ function searchHotel() {
         howManyPeople = 0;
       for (const key in hotel[i].room) {
         if (howManyPeople <= hotel[i].room[key].people) {
-          while (document.querySelector("#show-hotels").firstChild) {
-            document.querySelector("#show-hotels").removeChild(document.querySelector("#show-hotels").firstChild);
+          let x = document.querySelector("#show-hotels");
+          while (x.firstChild) {
+            x.removeChild(x.firstChild);
           }
-          show(i);
+          hotelsList(i);
         }
       }
     }
@@ -54,10 +57,11 @@ function searchHotel() {
         howManyPeople = 0;
       for (const key in hotel[i].room) {
         if (howManyPeople <= hotel[i].room[key].people) {
-          while (document.querySelector("#show-hotels").firstChild) {
-            document.querySelector("#show-hotels").removeChild(document.querySelector("#show-hotels").firstChild);
+          let x = document.querySelector("#show-hotels");
+          while (x.firstChild) {
+            x.removeChild(x.firstChild);
           }
-          show(i);
+          hotelsList(i);
         }
       }
     }

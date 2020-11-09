@@ -1,8 +1,7 @@
 import hotel from "./db.js";
 import crE from "./createElement.js"
 
-function allHotelsList() {
-  for (let i = 0; i < hotel.length; i++) {
+function hotelsList(i) {
     let imgPath = hotel[i].images[0];
     let imgFile = crE("img", { src: imgPath, alt: hotel[i].name, class: "show-images" })
     let h2 = crE("h2", { class: "text" }, hotel[i].name + " " + hotel[i].stars + "\u2B50");
@@ -26,7 +25,7 @@ function allHotelsList() {
       return Math.floor(totalPrice / countObj).toFixed(2);
     }
 
-  }
+
 }
 
 /*
@@ -52,4 +51,4 @@ ________________________________________________________________________________
 */
 
 
-export default allHotelsList;
+export default hotelsList;

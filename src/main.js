@@ -1,7 +1,7 @@
 import hotel from "./db.js";
 import searchHotel from "./search.js";
 import autocomplete from "./autocomplete.js";
-import allHotelsList from "./hotelList.js";
+import hotelsList from "./hotelList.js";
 import viewHotel from "./viewHotel.js";
 import restrictPastDates from "./restrictDates.js";
 
@@ -22,7 +22,9 @@ let dateTo = document.querySelector("#dateTo");
 // pozivi funkcija i event listeneri
 restrictPastDates(dateFrom, dateTo);
 autocomplete(inpText, destinationNames, hotelNames);
-allHotelsList();
+for (let i = 0; i < hotel.length; i++) {
+  hotelsList(i);
+}
 document.querySelector("#search-btn").addEventListener("click", searchHotel);
 if (document.querySelector("#show-hotels").hasChildNodes()) {
   for (let i = 0; i < hotel.length; i++) {
