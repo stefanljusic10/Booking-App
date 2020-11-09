@@ -1,6 +1,9 @@
-import hotel from "./db.js"
+import hotel from "./db.js";
+import show from "./showHotel.js";
 
 function searchHotel() {
+  document.querySelector("#show-hotels").style.display = "none";
+
   let searchText = document.querySelector("#input-text").value;
   let howManyPeople = document.querySelector("#people-number").value;
   // Datumi se ucitavaju i pretvaraju u objekte zbog konvertovanja u milisekunde
@@ -13,16 +16,50 @@ function searchHotel() {
     if (searchText.toLowerCase() === hotel[i].destination.toLowerCase()) {
       if (howManyPeople === "")
         howManyPeople = 0;
-
+      for (const key in hotel[i].room) {
+        if (howManyPeople <= hotel[i].room[key].people) {
+          while (document.querySelector("#show-hotels").firstChild) {
+            document.querySelector("#show-hotels").removeChild(document.querySelector("#show-hotels").firstChild);
+          }
+          show(i);
+        }
+      }
     }
     else if (searchText === "") {
-      // iskopirati if blok
+      if (howManyPeople === "")
+        howManyPeople = 0;
+      for (const key in hotel[i].room) {
+        if (howManyPeople <= hotel[i].room[key].people) {
+          while (document.querySelector("#show-hotels").firstChild) {
+            document.querySelector("#show-hotels").removeChild(document.querySelector("#show-hotels").firstChild);
+          }
+          show(i);
+        }
+      }
     }
     if (searchText.toLowerCase() === hotel[i].name.toLowerCase()) {
-      // iskopirati if blok
+      if (howManyPeople === "")
+        howManyPeople = 0;
+      for (const key in hotel[i].room) {
+        if (howManyPeople <= hotel[i].room[key].people) {
+          while (document.querySelector("#show-hotels").firstChild) {
+            document.querySelector("#show-hotels").removeChild(document.querySelector("#show-hotels").firstChild);
+          }
+          show(i);
+        }
+      }
     }
     else if (searchText === "") {
-      // iskopirati if blok
+      if (howManyPeople === "")
+        howManyPeople = 0;
+      for (const key in hotel[i].room) {
+        if (howManyPeople <= hotel[i].room[key].people) {
+          while (document.querySelector("#show-hotels").firstChild) {
+            document.querySelector("#show-hotels").removeChild(document.querySelector("#show-hotels").firstChild);
+          }
+          show(i);
+        }
+      }
     }
   }
 }

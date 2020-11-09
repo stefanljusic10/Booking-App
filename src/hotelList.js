@@ -19,11 +19,11 @@ function allHotelsList() {
 
     function averagePriceCalculator() {
       let totalPrice = 0;
-      let counter = Object.keys(hotel[i].room).length;
+      let countObj = Object.keys(hotel[i].room).length;
       for (let roomType in hotel[i].room) {
         totalPrice += hotel[i].room[roomType].price;
       }
-      return Math.floor(totalPrice / counter).toFixed(2);
+      return Math.floor(totalPrice / countObj).toFixed(2);
     }
 
   }
