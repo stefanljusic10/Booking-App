@@ -25,9 +25,9 @@ autocomplete(inpText, destinationNames, hotelNames);
 for (let i = 0; i < hotel.length; i++) {
   hotelsList(i);
 }
-document.querySelector("#search-btn").addEventListener("click", searchHotel);
 if (document.querySelector("#show-hotels").hasChildNodes()) {
   for (let i = 0; i < hotel.length; i++) {
     document.querySelector(`#bookbtn${i}`).addEventListener("click", viewHotel);
   }
 }
+document.querySelector("#search-btn").addEventListener("click", searchHotel);
